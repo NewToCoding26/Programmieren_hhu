@@ -1,0 +1,10 @@
+Aufgabe 2:
+
+Um die datei "Hello.java" zu kompilieren, muss ich zuerst auf den zugehötigen Dateipfad, um dies zu tun,
+hat das Terminal den Befehl "cd". Um zu Beispiel in den Dateipfad "/home" zu gelangen, muss ich als Befehl
+"cd /home" eingeben, oder ich gebe "cd hom" ein und drücke dann die TAB taste, damit es automatisch ver-
+vollständigt wird. Diese methode verwende ich mit /home/jinora/progra/Blatt01 um im richtigen Dateipfad zu
+gelangen.
+Sobald ich im richtigen Dateipfad bin gebe ich den Befehl "javac Hello.java" ein um eine class Datei zu 
+erstellen und somit die Datei compiliert zu haben. Nun gebe ich den Befehl "java Hello" ein um die
+Hello.java Datei auszuführen.
