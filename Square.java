@@ -3,6 +3,6 @@ public class Square {
         int a = Integer.parseInt(args[0]);  
         int square = a * a;  
         
-        System.out.println("java Square " +square);  
+        System.out.println(square);  
     }
 }
