@@ -1,14 +1,14 @@
 public class Chess {
     public static void main(String[] args) {
         if (args.length == 0) {
-            System.out.println("ERROR: Bitte die Größe des Feldes als Argument übergeben!");
+            System.out.println("ERROR: Bitte eine Positive ganze Zahl eingeben");
             return;
         }
 
         int n = Integer.parseInt(args[0]);
 
         if (n <= 0) {
-            System.out.println("ERROR: '" + n + "' ist keine positive ganze Zahl.");
+            System.out.println("ERROR: " + n + " ist keine positive ganze Zahl.");
             return;
         }
 
