@@ -21,7 +21,7 @@ public class PQ {
             double minus = -p / 2 - wurzelZiehen;
             System.out.println(plus);
             System.out.println(minus);
-            System.out.println("Es gibt zwei Nullstellen");
+            System.out.println("Es gibt zwei Nullstellen"); 
         }
     }
 }
