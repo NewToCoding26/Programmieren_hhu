@@ -1,4 +1,14 @@
 public class Lotto {
+    
+    public static boolean istBereitsGezogen(int[] array, int länge, int zahl) {
+        for (int i = 0; i < länge; i++) {
+            if (array[i] == zahl) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         if (args.length != 2) {
             System.out.println("ERROR: Nicht genau zwei Argumente übergeben");
@@ -17,13 +27,24 @@ public class Lotto {
             return;
         }
 
-        for (int i = 0; i < n; i++) {
+        int[] gezogeneZahlen = new int[n];
+        int count = 0;
+
+        while (count < n) {
             int zahl = (int) (Math.random() * m) + 1;
-            if (i > 0) {
+            if (!istBereitsGezogen(gezogeneZahlen, count, zahl)) {
+                gezogeneZahlen[count] = zahl;
+                count++;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(gezogeneZahlen[i]);
+            if (i < n - 1) {
                 System.out.print(", ");
             }
-            System.out.print(zahl);
         }
-    
+        System.out.println(); 
     }
 }
+
