@@ -2,14 +2,19 @@ import java.util.Scanner;
 
 public class Histogram {
 
-private static boolean istGanzeZahl(String str) {
-    for (int i = 0; i < str.length(); i++) {
-        char c = str.charAt(i);
-        if (i == 0 && c == '-') continue; 
-        if (c < '0' || c > '9') return false;
+    private static boolean istGanzeZahl(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (i == 0 && c == '-') {
+                continue;
+            }
+            if (c < '0' || c > '9') {
+                return false;
+            }
+        }
+        return true;
     }
-    return true;
-}
+
     public static void main(String[] args) {
         if (args.length < 3) {
             System.out.println("ERROR: Weniger als drei Argumente übergeben");
@@ -20,6 +25,7 @@ private static boolean istGanzeZahl(String str) {
             System.out.println("ERROR: Ungültige Eingabeparameter");
             return;
         }
+
         int min = Integer.parseInt(args[0]);
         int max = Integer.parseInt(args[1]);
         int n = Integer.parseInt(args[2]);
@@ -52,19 +58,19 @@ private static boolean istGanzeZahl(String str) {
 
         String[] zahlenString = new String[spaceCount + 1];
         int index = 0;
-        String zahl = "";  
+        String zahl = "";
 
         for (int i = 0; i < eingabeZeile.length(); i++) {
             char c = eingabeZeile.charAt(i);
             if (c == ' ') {
                 zahlenString[index] = zahl;
                 index++;
-                zahl = "";  
+                zahl = "";
             } else {
-                zahl = zahl + c;  
+                zahl = zahl + c;
             }
         }
-        zahlenString[index] = zahl; 
+        zahlenString[index] = zahl;
 
         int[] bins = new int[n];
 
@@ -92,9 +98,10 @@ private static boolean istGanzeZahl(String str) {
         for (int i = 0; i < n; i++) {
             System.out.print(bins[i] + " ");
         }
-        System.out.println(); 
+        System.out.println();
     }
 }
+
 
 
 

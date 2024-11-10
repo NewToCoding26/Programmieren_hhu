@@ -65,13 +65,19 @@ public class Kniffel {
     private static int fullHouse(int[] dice) {
         boolean threeOfKind = (dice[0] == dice[1] && dice[1] == dice[2] && dice[3] == dice[4] && dice[2] != dice[3]) ||
                               (dice[0] == dice[1] && dice[2] == dice[3] && dice[3] == dice[4] && dice[1] != dice[2]);
-        return threeOfKind ? 25 : 0;
+        if (threeOfKind) {
+            return 25;
+        } else {
+            return 0;
+        }
     }
 
     private static int smallStraight(int[] dice) {
         int[][] smallStraights = {{1, 2, 3, 4}, {2, 3, 4, 5}, {3, 4, 5, 6}};
         for (int[] straight : smallStraights) {
-            if (containsSequence(dice, straight)) return 30;
+            if (containsSequence(dice, straight)) {
+                return 30;
+            }
         }
         return 0;
     }
@@ -79,13 +85,18 @@ public class Kniffel {
     private static int largeStraight(int[] dice) {
         int[] largeStraight1 = {1, 2, 3, 4, 5};
         int[] largeStraight2 = {2, 3, 4, 5, 6};
-        if (Arrays.equals(dice, largeStraight1) || Arrays.equals(dice, largeStraight2)) return 40;
-        return 0;
+        if (Arrays.equals(dice, largeStraight1) || Arrays.equals(dice, largeStraight2)) {
+            return 40;
+        } else {
+            return 0;
+        }
     }
 
     private static int kniffel(int[] dice) {
         for (int i = 1; i < dice.length; i++) {
-            if (dice[i] != dice[0]) return 0;
+            if (dice[i] != dice[0]) {
+                return 0;
+            }
         }
         return 50;
     }
@@ -101,8 +112,12 @@ public class Kniffel {
     private static boolean containsSequence(int[] dice, int[] sequence) {
         int matchCount = 0;
         for (int die : dice) {
-            if (die == sequence[matchCount]) matchCount++;
-            if (matchCount == sequence.length) return true;
+            if (die == sequence[matchCount]) {
+                matchCount++;
+            }
+            if (matchCount == sequence.length) {
+                return true;
+            }
         }
         return false;
     }
@@ -139,5 +154,6 @@ public class Kniffel {
         System.out.println("Chance: " + chance(dice));
     }
 }
+
 
 
