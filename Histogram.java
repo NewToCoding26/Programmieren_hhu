@@ -2,23 +2,20 @@ import java.util.Scanner;
 
 public class Histogram {
 
-   // Hilfsmethode zur Überprüfung, ob ein String eine Ganzzahl ist
 private static boolean istGanzeZahl(String str) {
     for (int i = 0; i < str.length(); i++) {
         char c = str.charAt(i);
-        if (i == 0 && c == '-') continue; // Erlaubt negatives Vorzeichen
+        if (i == 0 && c == '-') continue; 
         if (c < '0' || c > '9') return false;
     }
     return true;
 }
     public static void main(String[] args) {
-        // Prüfen, ob genau drei Argumente übergeben wurden
         if (args.length < 3) {
             System.out.println("ERROR: Weniger als drei Argumente übergeben");
             return;
         }
 
-        // Eingabeparameter in Integer umwandeln (ohne try-catch)
         if (!istGanzeZahl(args[0]) || !istGanzeZahl(args[1]) || !istGanzeZahl(args[2])) {
             System.out.println("ERROR: Ungültige Eingabeparameter");
             return;
@@ -27,7 +24,6 @@ private static boolean istGanzeZahl(String str) {
         int max = Integer.parseInt(args[1]);
         int n = Integer.parseInt(args[2]);
 
-        // Fehlerbedingungen prüfen
         if (n < 1) {
             System.out.println("ERROR: n darf nicht kleiner als 1 sein");
             return;
@@ -41,14 +37,12 @@ private static boolean istGanzeZahl(String str) {
             return;
         }
 
-        // Bin-Breite berechnen
         int binBreite = (max - min) / n;
 
-        // Scanner für die Standardeingabe
         Scanner standardEingabe = new Scanner(System.in);
         String eingabeZeile = standardEingabe.nextLine();
+        standardEingabe.close();
 
-        // Manuelles Aufteilen der Eingabezeile an Leerzeichen
         int spaceCount = 0;
         for (int i = 0; i < eingabeZeile.length(); i++) {
             if (eingabeZeile.charAt(i) == ' ') {
@@ -56,28 +50,24 @@ private static boolean istGanzeZahl(String str) {
             }
         }
 
-        // Erstelle ein Array für die Zahlen
         String[] zahlenString = new String[spaceCount + 1];
         int index = 0;
-        String zahl = "";  // Leere Zeichenkette zur Speicherung der Zahl
+        String zahl = "";  
 
-        // Zeichenweise durch die Eingabezeile gehen und an Leerzeichen aufteilen
         for (int i = 0; i < eingabeZeile.length(); i++) {
             char c = eingabeZeile.charAt(i);
             if (c == ' ') {
                 zahlenString[index] = zahl;
                 index++;
-                zahl = "";  // Zurücksetzen für die nächste Zahl
+                zahl = "";  
             } else {
-                zahl = zahl + c;  // Zeichen zur Zahl hinzufügen
+                zahl = zahl + c;  
             }
         }
-        zahlenString[index] = zahl;  // Letzte Zahl hinzufügen
+        zahlenString[index] = zahl; 
 
-        // Bins-Array für die Häufigkeitsverteilung
         int[] bins = new int[n];
 
-        // Zahlen in die Bins einsortieren
         for (String zahlStr : zahlenString) {
             if (!istGanzeZahl(zahlStr)) {
                 System.out.println("ERROR: Ungültige Eingabe in der Zahlenliste");
@@ -85,16 +75,13 @@ private static boolean istGanzeZahl(String str) {
             }
             int zahlInt = Integer.parseInt(zahlStr);
 
-            // Prüfen, ob die Zahl im gültigen Bereich liegt
             if (zahlInt < min || zahlInt > max) {
                 System.out.println("ERROR: Zahl außerhalb des gültigen Bereichs");
                 return;
             }
 
-            // Bin bestimmen, in das die Zahl fällt
             int binIndex = (zahlInt - min) / binBreite;
 
-            // Letzten Bin anpassen, damit die obere Grenze inklusive ist
             if (binIndex >= n) {
                 binIndex = n - 1;
             }
@@ -102,11 +89,10 @@ private static boolean istGanzeZahl(String str) {
             bins[binIndex]++;
         }
 
-        // Ergebnis ausgeben
         for (int i = 0; i < n; i++) {
             System.out.print(bins[i] + " ");
         }
-        System.out.println(); // Zeilenumbruch
+        System.out.println(); 
     }
 }
 
