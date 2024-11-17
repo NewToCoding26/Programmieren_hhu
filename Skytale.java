@@ -55,18 +55,21 @@ public class Skytale {
     }
 
     private static String formatierenMitLeerzeichen(String nachricht, int[] gruppenGroessen) {
-        StringBuilder result = new StringBuilder();
+        char[] result = new char[nachricht.length() + gruppenGroessen.length - 1]; 
         int index = 0;
+        int nachrichtIndex = 0;
 
-        for (int gruppe : gruppenGroessen) {
-            result.append(nachricht, index, index + gruppe);
-            index += gruppe;
-            if (index < nachricht.length()) {
-                result.append(" ");
+        for (int i = 0; i < gruppenGroessen.length; i++) {
+            int gruppe = gruppenGroessen[i];
+            for (int j = 0; j < gruppe; j++) {
+                result[index++] = nachricht.charAt(nachrichtIndex++);
+            }
+            if (i < gruppenGroessen.length - 1) {
+                result[index++] = ' ';
             }
         }
 
-        return result.toString();
+        return new String(result);
     }
 
     public static void main(String[] args) {
@@ -76,26 +79,27 @@ public class Skytale {
         }
 
         String modus = args[0];
-        String nachricht = args[1]; // Keine Leerzeichen entfernen, Leerzeichen sind Teil der Nachricht
+        String nachricht = args[1];
 
-        if (nachricht.length() != 28) { // Exakte Länge prüfen
+        if (nachricht.length() != 28) { 
             System.out.println("ERROR");
             return;
         }
 
         if (modus.equals("E")) {
             String verschluesselteNachricht = verschluesseln(nachricht);
-            int[] gruppenGroessen = {14, 14}; // Zwei gleiche Gruppen
+            int[] gruppenGroessen = {14, 14}; 
             System.out.println(formatierenMitLeerzeichen(verschluesselteNachricht, gruppenGroessen));
         } else if (modus.equals("D")) {
             String entschluesselteNachricht = entschluesseln(nachricht);
-            int[] gruppenGroessen = {3, 7, 7, 7, 4}; // Gruppengrößen für lesbare Ausgabe
+            int[] gruppenGroessen = {3, 7, 7, 7, 4}; 
             System.out.println(formatierenMitLeerzeichen(entschluesselteNachricht, gruppenGroessen));
         } else {
             System.out.println("ERROR");
         }
     }
 }
+
 
 
 
