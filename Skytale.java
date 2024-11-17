@@ -12,14 +12,13 @@ public class Skytale {
     }
 
     private static String rasterSpaltenweiseAblesen(char[][] raster) {
-        char[] result = new char[28];
-        int index = 0;
+        StringBuilder result = new StringBuilder();
         for (int j = 0; j < 7; j++) {
             for (int i = 0; i < 4; i++) {
-                result[index++] = raster[i][j];
+                result.append(raster[i][j]);
             }
         }
-        return new String(result);
+        return result.toString();
     }
 
     private static String verschluesseln(String nachricht) {
@@ -39,14 +38,13 @@ public class Skytale {
     }
 
     private static String rasterZeilenweiseAblesen(char[][] raster) {
-        char[] result = new char[28];
-        int index = 0;
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 7; j++) {
-                result[index++] = raster[i][j];
+                result.append(raster[i][j]);
             }
         }
-        return new String(result);
+        return result.toString();
     }
 
     private static String entschluesseln(String nachricht) {
@@ -55,21 +53,21 @@ public class Skytale {
     }
 
     private static String formatierenMitLeerzeichen(String nachricht, int[] gruppenGroessen) {
-        char[] result = new char[nachricht.length() + gruppenGroessen.length - 1]; 
+        StringBuilder result = new StringBuilder();
         int index = 0;
-        int nachrichtIndex = 0;
 
-        for (int i = 0; i < gruppenGroessen.length; i++) {
-            int gruppe = gruppenGroessen[i];
-            for (int j = 0; j < gruppe; j++) {
-                result[index++] = nachricht.charAt(nachrichtIndex++);
+        for (int gruppe : gruppenGroessen) {
+            if (index + gruppe > nachricht.length()) {
+                throw new IllegalArgumentException("Ungültige Gruppengröße oder Nachricht zu kurz.");
             }
-            if (i < gruppenGroessen.length - 1) {
-                result[index++] = ' ';
+            result.append(nachricht, index, index + gruppe);
+            index += gruppe;
+            if (index < nachricht.length()) {
+                result.append(' '); // Leerzeichen nur zwischen Gruppen einfügen
             }
         }
 
-        return new String(result);
+        return result.toString();
     }
 
     public static void main(String[] args) {
@@ -99,6 +97,7 @@ public class Skytale {
         }
     }
 }
+
 
 
 
