@@ -17,35 +17,33 @@ public class Plateau {
         int longestPlateauStart = -1;
         int longestPlateauLength = 0;
 
-        // Schleife durch die Liste der Zahlen (bis zum vorletzten Element)
-        for (int i = 1; i < numbers.length - 1; i++) {
-            // Überprüfen, ob wir ein Plateau gefunden haben
-            if (numbers[i] == numbers[i - 1] || numbers[i] == numbers[i + 1]) {
-                // Start des Plateaus gefunden
-                int plateauStart = i;
-                int plateauEnd = i;
+        // Schleife durch die Liste der Zahlen
+        for (int i = 0; i < numbers.length; i++) {
+            // Plateau-Start und -Ende ermitteln
+            int plateauStart = i;
+            int plateauEnd = i;
 
-                // Plateau ausdehnen, solange die Zahlen gleich sind
-                while (plateauEnd + 1 < numbers.length && numbers[plateauEnd] == numbers[plateauEnd + 1]) {
-                    plateauEnd++;
-                }
-
-                // Überprüfen, ob das Plateau von kleineren Zahlen umgeben ist
-                if (plateauStart > 0 && plateauEnd < numbers.length - 1 &&
-                        numbers[plateauStart - 1] < numbers[plateauStart] &&
-                        numbers[plateauEnd + 1] < numbers[plateauEnd]) {
-
-                    // Plateau-Länge und Start-Index speichern, wenn es länger ist als das vorherige
-                    int plateauLength = plateauEnd - plateauStart + 1;
-                    if (plateauLength > longestPlateauLength) {
-                        longestPlateauLength = plateauLength;
-                        longestPlateauStart = plateauStart;
-                    }
-                }
-
-                // Zum Ende des Plateaus springen
-                i = plateauEnd;
+            // Plateau ausdehnen, solange die Werte gleich bleiben
+            while (plateauEnd + 1 < numbers.length && numbers[plateauEnd] == numbers[plateauEnd + 1]) {
+                plateauEnd++;
             }
+
+            // Überprüfen, ob das Plateau gültig ist (von kleineren Zahlen umgeben)
+            if (plateauStart > 0 && plateauEnd < numbers.length - 1 &&
+                    numbers[plateauStart - 1] < numbers[plateauStart] &&
+                    numbers[plateauEnd + 1] < numbers[plateauEnd]) {
+
+                int plateauLength = plateauEnd - plateauStart + 1;
+
+                // Längstes Plateau speichern
+                if (plateauLength > longestPlateauLength) {
+                    longestPlateauLength = plateauLength;
+                    longestPlateauStart = plateauStart;
+                }
+            }
+
+            // Schleifen-Index auf das Ende des Plateaus setzen
+            i = plateauEnd;
         }
 
         // Ergebnis ausgeben
@@ -56,6 +54,7 @@ public class Plateau {
         }
     }
 }
+
 
 
 
