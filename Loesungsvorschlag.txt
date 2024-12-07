@@ -1,0 +1,22 @@
+Musterlösung:
+
+1. Definition einer Klasse:
+Eine Klasse in Java ist wie ein Bauplan, mit dem man Objekte erstellen kann. Dieser Bauplan definiert die Eigenschaften (Zustand) und das
+Verhalten (Methoden) des Objekts. Zum Beispiel könnte eine Klasse "Auto" Eigenschaften wie Farbe und Geschwindigkeit enthalten sowie Ver-
+haltensweisen wie Fahren und Bremsen beschreiben. Eine Klasse bildet somit die Grundlage dafür, mehrere Objekte mit ähnlichen Eigenschaf-
+ten und Verhalten zu erstellen.
+
+2. Instanz-Variablen:
+Instanz-Variablen speichern die spezifischen Eigenschaften eines einzelnen Objekts. Jedes Objekt, das von einer Klasse erstellt wird, hat 
+seine eigenen Werte für diese Variablen. Wenn man sich ein Fahrrad vorstellt, könnte ein Fahrrad die Farbe Blau haben, während ein anderes
+Fahrrad Rot ist. Beide Fahrräder basieren auf derselben Klasse, haben jedoch unterschiedliche Werte für die Farbe.
+
+3. Getter- und Setter-Methoden:
+Getter und Setter ermöglichen den Zugriff auf die Eigenschaften eines Objekts. Ein Getter gibt den aktuellen Wert einer Eigenschaft zurück,
+während ein Setter den Wert ändern kann. Dies bietet eine kontrollierte Möglichkeit, auf die Eigenschaften zuzugreifen oder diese zu än-
+dern, ohne direkt auf die Variablen zuzugreifen. Zum Beispiel könnte man den Namen eines Mitarbeiters in einer Klasse nur dann ändern, 
+wenn dieser nicht leer oder ungültig ist.
+
+Zusammenfassend bieten Klassen eine Möglichkeit, reale Objekte in einem Programm abzubilden. Instanz-Variablen speichern die individuellen
+Eigenschaften der Objekte, und Getter und Setter gewährleisten einen sicheren Zugriff auf diese Daten.
+

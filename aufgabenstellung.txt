@@ -1,0 +1,16 @@
+Aufgabenstellung:
+
+Ein Kollege, der gerade mit Java angefangen hat, bittet Sie, die folgenden Konzepte ausführlich zu erklären:
+
+Wie definiert man eine eigene Klasse in Java?
+Was sind Instanz-Variablen und wie werden sie verwendet?
+Welche Rolle spielen Getter- und Setter-Methoden in einer Klasse?
+Erstellen Sie dazu einen kurzen, aber präzisen Text, der die oben genannten Konzepte mit eigenen Worten erklärt. Verwenden Sie ein Beispiel aus der echten Welt, um die Begriffe zu verdeutlichen (z. B. das Modellieren eines Autos oder Fahrrads).
+
+Geprüfte Lernziele:
+
+Sie können eigene Klassen mit Instanz-Methoden und -Variablen definieren.
+Sie können Getter- und Setter-Methoden schreiben.
+
+Folie: Vorlesung 11
+Foliensatz: 26
