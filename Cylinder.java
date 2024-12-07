@@ -15,16 +15,20 @@ public class Cylinder {
         this.height = 0.0;
     }
 
-    public double calculateVolume() {
-        return 3.14159 * radius * radius * height;
+    public double volume() {
+        return Math.PI * radius * radius * height;
     }
 
     @Override
     public String toString() {
-        return String.format(Locale.US, "Cylinder: r=%.1f, h=%.1f, V=%.5f", radius, height, calculateVolume());
+        return String.format(Locale.US, "Cylinder: r=%.3f, h=%.3f, V=%.5f", radius, height, volume());
     }
 
-    public static Cylinder[] sortCylinders(Cylinder[] cylinders) {
+    public static Cylinder[] sorted(Cylinder[] cylinders) {
+        if (cylinders == null || cylinders.length == 0) {
+            return new Cylinder[0];
+        }
+
         Cylinder[] sortedCylinders = new Cylinder[cylinders.length];
         for (int i = 0; i < cylinders.length; i++) {
             sortedCylinders[i] = cylinders[i];
@@ -32,7 +36,7 @@ public class Cylinder {
 
         for (int i = 0; i < sortedCylinders.length - 1; i++) {
             for (int j = 0; j < sortedCylinders.length - 1 - i; j++) {
-                if (sortedCylinders[j].calculateVolume() > sortedCylinders[j + 1].calculateVolume()) {
+                if (sortedCylinders[j].volume() > sortedCylinders[j + 1].volume()) {
                     Cylinder temp = sortedCylinders[j];
                     sortedCylinders[j] = sortedCylinders[j + 1];
                     sortedCylinders[j + 1] = temp;
@@ -43,11 +47,6 @@ public class Cylinder {
     }
 
     public static void main(String[] args) {
-        if (args.length % 2 != 0) {
-            System.out.println("Fehler: Ungültige Anzahl von Argumenten.");
-            return;
-        }
-
         Cylinder[] cylinders = new Cylinder[args.length / 2];
         for (int i = 0; i < args.length; i += 2) {
             double radius = Double.parseDouble(args[i]);
@@ -55,10 +54,11 @@ public class Cylinder {
             cylinders[i / 2] = new Cylinder(radius, height);
         }
 
-        Cylinder[] sortedCylinders = sortCylinders(cylinders);
-        for (int i = 0; i < sortedCylinders.length; i++) {
-            System.out.println(sortedCylinders[i].toString());
+        Cylinder[] sortedCylinders = sorted(cylinders);
+        for (Cylinder cylinder : sortedCylinders) {
+            System.out.println(cylinder);
         }
     }
 }
+
 
