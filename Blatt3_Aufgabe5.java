@@ -8,10 +8,17 @@ public class Blatt3_Aufgabe5 {
         double p = Double.parseDouble(args[0]);
         double q = Double.parseDouble(args[1]);
 
-        double formelNegativ =  -p/2 - Math.sqrt((p*p) / 4 - p);
-        double formelPositv =  -p/2 + Math.sqrt((p*p) / 4 - p);
+        double unterWurzel = p * p / 4 - q;
 
-        System.out.println(formelNegativ);
-        System.out.println(formelPositv);
+        if (unterWurzel < 0) {
+            System.out.println("ERROR: KEINE NULLSTELLEN");
+        } else if (unterWurzel < 0.0000001) {
+            System.out.println(-p / 2);
+            System.out.println("Es gibt eine Nullstelle");
+        } else {
+            System.out.println(-p / 2 - Math.sqrt(unterWurzel));
+            System.out.println(-p / 2 + Math.sqrt(unterWurzel));
+            System.out.println("Es gibt zwei Nullstellen");
+        }
     }
 }
