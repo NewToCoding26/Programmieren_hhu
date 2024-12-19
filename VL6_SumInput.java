@@ -1,10 +1,10 @@
 import java.util.Scanner;
-import java.util.Locale;
 
 public class VL6_SumInput {
     public static void main(String[] args) {
         
         Scanner standardInput = new Scanner (System.in);
+        standardInput.close();
 
         double sum = 0;
 
