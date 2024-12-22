@@ -53,7 +53,7 @@ import java.awt.image.WritableRaster;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.net.URI;
 import java.net.URL;
 
 import java.util.LinkedList;
@@ -1231,7 +1231,8 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         // try to read from URL
         if ((icon == null) || (icon.getImageLoadStatus() != MediaTracker.COMPLETE)) {
             try {
-                URL url = new URL(filename);
+                URI uri = new URI(filename); 
+                URL url = uri.toURL();
                 icon = new ImageIcon(url);
             }
             catch (Exception e) {
