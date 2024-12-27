@@ -13,5 +13,7 @@ public class VL9_Wordcounter {
         }
 
         System.out.println(wordsSoFar + " Wörter gezählt.");
+        stdin.close();
+
     }
 }

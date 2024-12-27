@@ -45,7 +45,7 @@ public class VL8_Primes {
         int[] primes = getPrimes(20);
 
         for(int prime: primes) {
-            System.out.println(prime + " ");
+            System.out.println(prime);
         }
     }
 }

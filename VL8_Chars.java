@@ -10,5 +10,16 @@ public class VL8_Chars {
 
         char allChars[] = helloWorld.toCharArray();
         System.out.println(allChars[0]);
+
+        for (char letter: allChars) {
+            System.out.print(letter);
+        }
+        System.out.println();
+
+        char letter = 'A';
+        System.out.println((char) letter + 1);
+        System.out.println(letter + 1);
+        System.out.println((int) letter);
+
     }
 }

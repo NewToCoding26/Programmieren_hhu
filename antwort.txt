@@ -1,0 +1,10 @@
+
+Aufgabe 1: Listen und Arrays
+ 
+Daniel sollte eine verkettete Liste verwenden, da die genaue anzahl von Produkten noch nicht bekannt ist und die verkettete Liste es er-
+laubt dynamisch neue Elemente hinzuzufügen und es nicht es keinen großen Zeitunterschied macht, da er nur die Produktnamen und den Gesamt-
+preis ausgeben will, was am Ende einmalig durch Iteration erfolgt.
+
+Lisa sollte ein Array verwenden, da die Größe (1.000.000) vorher bekannt ist und der Speicherverbauch geringer ist, da verkettete Listen
+noch Speicher für Referenzen benötigen. Außerdem kann man mit Hilfe von Array schnell auf Elemente per Index zugreifen und sie benötigt
+verschiedene Indices.
