@@ -1,13 +1,13 @@
 import java.awt.Color;
 
-public class VL13_Ball implements VL13_FlyingObject{
+public class VL13_Square implements VL13_FlyingObject{
     private VL12_CatesianPoint position;
     private VL12_CatesianPoint velocity;
     private Color color;
     private double radius;
 
 
-    public VL13_Ball () {
+    public VL13_Square () {
         position = new VL12_CatesianPoint(Math.random() / 2 + 0.25, (Math.random() / 2 + 0.25));
         velocity = new VL12_CatesianPoint(Math.random() / 50 , Math.random() / 50);
         color = randomColor();
@@ -23,7 +23,7 @@ public class VL13_Ball implements VL13_FlyingObject{
     }
 
     public void draw() {
-        StdDraw.filledCircle(position.getX(), position.getY(), radius);
+        StdDraw.filledRectangle(position.getX(), position.getY(), radius, radius);
         StdDraw.setPenColor(color);
         
     }
