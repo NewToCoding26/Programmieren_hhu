@@ -1,6 +1,7 @@
 import java.awt.Color;
 
 public class VL13_Ball implements VL13_FlyingObject{
+
     private VL12_CatesianPoint position;
     private VL12_CatesianPoint velocity;
     private Color color;
@@ -26,6 +27,14 @@ public class VL13_Ball implements VL13_FlyingObject{
         StdDraw.filledCircle(position.getX(), position.getY(), radius);
         StdDraw.setPenColor(color);
         
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public String toString() {
+        return "Ball mir radius: " + getRadius();
     }
 
     public void move() {
