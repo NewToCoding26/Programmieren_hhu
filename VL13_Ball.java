@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class VL13_Ball implements VL13_FlyingObject{
+public class VL13_Ball implements VL13_FlyingObject, VL15_Sortable{
 
     private VL12_CatesianPoint position;
     private VL12_CatesianPoint velocity;
@@ -34,7 +34,7 @@ public class VL13_Ball implements VL13_FlyingObject{
     }
 
     public String toString() {
-        return "Ball mir radius: " + getRadius();
+        return " Ball mit radius: " + getRadius();
     }
 
     public void move() {
@@ -45,5 +45,9 @@ public class VL13_Ball implements VL13_FlyingObject{
             velocity = new VL12_CatesianPoint(velocity.getX(), -velocity.getY());
         }
         position = position.add(velocity);
+    }
+
+    public double getSortKey() {
+        return radius;
     }
 }
