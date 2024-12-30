@@ -25,13 +25,13 @@ public class Application {
         buttonLine.add(disabledButton);
         verticalLayout.add(buttonLine);
         
-        // zu Aufgabenteil (b)
-//         Layout textFieldLine = new HorizontalLayout();
-//         textFieldLine.add(new TextField());
-//         TextField disabledTextField = new TextField();
-//         disabledTextField.setEnabled(false);
-//         textFieldLine.add(disabledTextField);
-//         verticalLayout.add(textFieldLine);
+      //   zu Aufgabenteil (b)
+        Layout textFieldLine = new HorizontalLayout();
+        textFieldLine.add(new TextField());
+        TextField disabledTextField = new TextField();
+        disabledTextField.setEnabled(false);
+        textFieldLine.add(disabledTextField);
+        verticalLayout.add(textFieldLine);
         
         Window window = new Window(verticalLayout);
         window.draw();
