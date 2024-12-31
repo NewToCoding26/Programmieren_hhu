@@ -7,7 +7,7 @@ public class AbgabenZähler {
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNextLine()) {
-            String zeile = scanner.nextLine();
+            String zeile = scanner.nextLine().trim(); // Leerzeichen entfernen
             
             if (endsWith(zeile, "-faruh")) {
                 countFaruh++;
@@ -32,5 +32,6 @@ public class AbgabenZähler {
         return true;
     }
 }
+
 
 
