@@ -1,4 +1,4 @@
-public class VL15_Studi {
+public class VL15_Studi implements VL15_Sortable{
     
     private String name;
     private int matrikelNummmer;

@@ -1,11 +1,11 @@
-public class VL17_List {
+public class VL17_StudiList {
 
     private class VL17_Node {
-        private int data;
+        private VL15_Studi data;
         private VL17_Node next;
     
     
-        private VL17_Node(int data, VL17_Node next) {
+        private VL17_Node(VL15_Studi data, VL17_Node next) {
             this.data = data;
             this.next = next;
         }
@@ -15,7 +15,7 @@ public class VL17_List {
     
     private VL17_Node head;
 
-    public void delete(int value) {
+    public void delete(VL15_Studi value) {
         VL17_Node current = head;
 
         if (head == null) {
@@ -36,7 +36,7 @@ public class VL17_List {
         }
     }
 
-    public void insert(int value) {
+    public void insert(VL15_Studi value) {
         VL17_Node newElement = new VL17_Node(value, head);
         head = newElement;
     }
@@ -52,7 +52,7 @@ public class VL17_List {
         return output;
     }
 
-    public int at(int index) {
+    public VL15_Studi at(int index) {
         VL17_Node current = head;
         int currentIndex = 0;
         while (current != null) {
@@ -62,10 +62,10 @@ public class VL17_List {
             current = current.next;
             currentIndex++;
         }
-        return -1;
+        return null;
     }
 
-    public int indexOf(int value) {
+    public int indexOf(VL15_Studi value) {
         VL17_Node current = head;
         int index = 0;
         while (current != null) {
