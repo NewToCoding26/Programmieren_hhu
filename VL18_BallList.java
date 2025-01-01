@@ -1,4 +1,4 @@
-public class VL17_BallList {
+public class VL18_BallList {
 
     private class VL17_Node {
         private VL13_Ball data;

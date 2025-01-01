@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class VL13_Ball implements VL13_FlyingObject, VL15_Sortable, VL17_ListData{
+public class VL13_Ball implements VL13_FlyingObject, VL15_Sortable{
 
     private VL12_CatesianPoint position;
     private VL12_CatesianPoint velocity;

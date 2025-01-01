@@ -2,30 +2,29 @@ public class VL17_Listst {
 
     public static void main(String[] args) {
 
-  /*      VL17_List fancyList = new VL17_List();
-        fancyList.insert(3);
-        fancyList.insert(2);
-        fancyList.insert(1);
-        fancyList.insert(0);
+        VL18_GenericList <Integer> fancyList = new VL18_GenericList<Integer>();
+        fancyList.insert(Integer.valueOf(3));
+        fancyList.insert(Integer.valueOf(2));
+        fancyList.insert(Integer.valueOf(1));
+        fancyList.insert(Integer.valueOf(0));
         System.out.println(fancyList.toString());
-*/
 
-        VL17_GenericList studiList = new VL17_GenericList();
+
+        VL18_GenericList <VL15_Studi> studiList = new VL18_GenericList <VL15_Studi>();
         studiList.insert(new VL15_Studi("Alice", 123));
         studiList.insert(new VL15_Studi("Bob", 234));
         studiList.insert(new VL15_Studi("Lea", 555));
-        studiList.insert(new VL13_Ball());
         System.out.println(studiList.toString());
 
 
-        VL17_GenericList ballList = new VL17_GenericList();
+        VL18_GenericList <VL13_Ball> ballList = new VL18_GenericList <VL13_Ball>();
         ballList.insert(new VL13_Ball());
         ballList.insert(new VL13_Ball());
         ballList.insert(new VL13_Ball());
         System.out.println(ballList.toString());
 
-        VL17_ListData ldata = ballList.at[0];
-
+        VL13_Ball ball = ballList.at(0);
+        ball.move();
 
 
     }

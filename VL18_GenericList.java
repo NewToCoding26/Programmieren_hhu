@@ -1,11 +1,11 @@
-public class VL17_StudiList {
+public class VL18_GenericList <T> {
 
     private class VL17_Node {
-        private VL15_Studi data;
+        private T data;
         private VL17_Node next;
     
     
-        private VL17_Node(VL15_Studi data, VL17_Node next) {
+        private VL17_Node(T data, VL17_Node next) {
             this.data = data;
             this.next = next;
         }
@@ -15,7 +15,7 @@ public class VL17_StudiList {
     
     private VL17_Node head;
 
-    public void delete(VL15_Studi value) {
+    public void delete(T value) {
         VL17_Node current = head;
 
         if (head == null) {
@@ -36,7 +36,7 @@ public class VL17_StudiList {
         }
     }
 
-    public void insert(VL15_Studi value) {
+    public void insert(T value) {
         VL17_Node newElement = new VL17_Node(value, head);
         head = newElement;
     }
@@ -52,7 +52,7 @@ public class VL17_StudiList {
         return output;
     }
 
-    public VL15_Studi at(int index) {
+    public T at(int index) {
         VL17_Node current = head;
         int currentIndex = 0;
         while (current != null) {
@@ -65,7 +65,7 @@ public class VL17_StudiList {
         return null;
     }
 
-    public int indexOf(VL15_Studi value) {
+    public int indexOf(T value) {
         VL17_Node current = head;
         int index = 0;
         while (current != null) {
