@@ -1,15 +1,15 @@
 public class VL13_BouncingBall {
     public static void main(String[] args) {
-        VL13_FlyingObject[] flyingObjects = new VL13_FlyingObject[8];
+        VL19_FlyingObject[] flyingObjects = new VL19_FlyingObject [8] ;
 
         for (int i = 0; i < flyingObjects.length; i+=2) {
-            flyingObjects[i] = new VL13_Ball();
+            flyingObjects[i] = new VL19_Ball();
             flyingObjects[i+1] = new VL13_Square();
 
         }
 
         while (true) {
-            for (VL13_FlyingObject fo: flyingObjects) {
+            for (VL19_FlyingObject fo: flyingObjects) {
                 fo.draw();
                 fo.move();
             }

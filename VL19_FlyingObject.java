@@ -7,6 +7,18 @@ public class VL19_FlyingObject {
     private Color color;
     private double radius;
 
+    public Color getColor() {
+        return this.color;
+    }
+    
+    public VL12_CatesianPoint getPosition() {
+        return this.position;
+    }
+    public double getRadius() {
+        return this.radius;
+    }
+
+
     public VL19_FlyingObject () {
         position = new VL12_CatesianPoint(Math.random() / 2 + 0.25, (Math.random() / 2 + 0.25));
         velocity = new VL12_CatesianPoint(Math.random() / 50 , Math.random() / 50);
@@ -30,5 +42,9 @@ public class VL19_FlyingObject {
             velocity = new VL12_CatesianPoint(velocity.getX(), -velocity.getY());
         }
         position = position.add(velocity);
+    }
+
+    public void draw() {
+
     }
 }
