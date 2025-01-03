@@ -47,4 +47,9 @@ public class VL19_FlyingObject {
     public void draw() {
 
     }
+
+    @Override
+    public String toString() {
+        return position.toString() + " " + color;
+    }
 }

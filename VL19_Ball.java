@@ -9,4 +9,10 @@ public class VL19_Ball extends VL19_FlyingObject{
         
     }
 
+    
+    @Override
+    public String toString() {
+        return "Ball @" + super.toString();
+    }
+
 }
