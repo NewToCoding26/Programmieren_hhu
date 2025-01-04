@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class VL19_FlyingObject {
+abstract public class VL19_FlyingObject {
     
     private VL12_CatesianPoint position;
     private VL12_CatesianPoint velocity;
@@ -44,12 +44,12 @@ public class VL19_FlyingObject {
         position = position.add(velocity);
     }
 
-    public void draw() {
-
-    }
-
     @Override
     public String toString() {
         return position.toString() + " " + color;
     }
+
+    
+    abstract public void draw();
+
 }
