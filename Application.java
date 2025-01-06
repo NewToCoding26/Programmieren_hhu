@@ -25,13 +25,12 @@ public class Application {
         buttonLine.add(disabledButton);
         verticalLayout.add(buttonLine);
         
-      //   zu Aufgabenteil (b)
-        Layout textFieldLine = new HorizontalLayout();
-        textFieldLine.add(new TextField());
-        TextField disabledTextField = new TextField();
-        disabledTextField.setEnabled(false);
-        textFieldLine.add(disabledTextField);
-        verticalLayout.add(textFieldLine);
+        Layout underlinedLine = new HorizontalLayout();
+        underlinedLine.add(new UnderlinedLabel("Underlined text"));
+        Label underlinedLabel = new UnderlinedLabel("Underlined text, disabled");
+        underlinedLabel.setEnabled(false);
+        underlinedLine.add(underlinedLabel);
+        verticalLayout.add(underlinedLine);
         
         Window window = new Window(verticalLayout);
         window.draw();
