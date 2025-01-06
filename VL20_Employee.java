@@ -7,7 +7,11 @@ public class VL20_Employee extends VL20_Person {
 
     public VL20_Employee (String name, String mailAddress, double salary) {
         super(name, mailAddress);
+        if (salary < 0) {
+            throw new IllegalArgumentException("negatives Gehalt");
+        }
         this.salary = salary;
+
     }
 
     public double getSalary() {
