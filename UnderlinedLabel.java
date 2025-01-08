@@ -13,10 +13,9 @@ public class UnderlinedLabel extends Label {
     }
 
     @Override
-    public String toString() {
-        // Angepasste Ausgabeformatierung
-        return "UnderlinedLabel(" + getWidth() + "×" + getHeight() + ")" + 
-               (isEnabled() ? "" : "{disabled}") + 
-               "[" + super.toString() + "]";
+        public String toString() {
+        String base = super.toString();
+        return base.replaceFirst("Label", "UnderlinedLabel");
     }
+
 }

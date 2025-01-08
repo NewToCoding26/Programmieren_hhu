@@ -1,7 +1,6 @@
 public class ListPlayground {
 
     public static void main(String[] args) {
-
         List<String> stringliste = new List<>();
 
         stringliste.append("Welt");
