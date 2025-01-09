@@ -1,7 +1,7 @@
 public class ListPlayground {
 
     public static void main(String[] args) {
-        List<String> stringliste = new List<>();
+        ListFürPlayGround<String> stringliste = new ListFürPlayGround<>()<>();
 
         stringliste.append("Welt");
         stringliste.append("!");
