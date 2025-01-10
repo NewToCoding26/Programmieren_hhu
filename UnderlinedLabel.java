@@ -6,18 +6,16 @@ public class UnderlinedLabel extends Label {
 
     @Override
     public void draw(int xOffset, int yOffset) {
-        // Zeichnet den Text (Superklasse)
         super.draw(xOffset, yOffset);
 
-        // Zeichnet die Linie unter dem Text
         StdDraw.setPenColor(isEnabled() ? StdDraw.BLACK : StdDraw.GRAY);
         StdDraw.line(
             (double) xOffset, 
-            (double) (yOffset - getHeight() + 2), // Linie knapp unter dem Text
+            (double) (yOffset - getHeight() + 2), 
             (double) (xOffset + getWidth()), 
             (double) (yOffset - getHeight() + 2)
-    );
-}
+        );
+    }
 
 
     @Override
