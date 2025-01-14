@@ -1,4 +1,4 @@
-public class VL23_BinarySearchTreeGenerics<T extends VL15_Sortable> {
+public class VL24_BinarySearchTreeGenerics<T extends VL15_Sortable> {
 
     private class BinaryNode {
         private BinaryNode left;
@@ -179,7 +179,7 @@ public class VL23_BinarySearchTreeGenerics<T extends VL15_Sortable> {
     }
 
     public static void main(String[] args) {
-        VL23_BinarySearchTreeGenerics<VL15_Studi> t = new VL23_BinarySearchTreeGenerics<VL15_Studi>();
+        VL24_BinarySearchTreeGenerics<VL15_Studi> t = new VL24_BinarySearchTreeGenerics<VL15_Studi>();
         t.insert(new VL15_Studi("sashs", 4782));
         t.insert(new VL15_Studi("kasre", 9387));
         t.insert(new VL15_Studi("laid", 6463));
