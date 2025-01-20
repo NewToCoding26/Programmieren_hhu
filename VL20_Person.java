@@ -6,7 +6,7 @@ public class VL20_Person {
     public VL20_Person(String name, String mailAddress) {
         this.name = name;
         this.mailAddress = mailAddress;
-    }
+    } 
     
     public String getName() {
         return this.name;
