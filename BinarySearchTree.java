@@ -1,135 +1,112 @@
-import java.util.NoSuchElementException;
-
-public class BinarySearchTree {
+public class BinarySearchTree<T extends Comparable<T>> { // Comparable<T> funktioniert ähnlich wie unser Sortable
 
     private class BinaryNode {
-        private int element;
-        private BinaryNode left;
-        private BinaryNode right;
-
-        private BinaryNode(int element) {
+        BinaryNode left;
+        BinaryNode right;
+        T element;
+        
+        public BinaryNode(T element) {
             this.element = element;
         }
     }
-
+    
     private BinaryNode root;
-
-    public void insert(int newNumber) {
+    
+    public void insert(T newObject) {
         if (root == null) {
-            root = new BinaryNode(newNumber);
+            root = new BinaryNode(newObject);
             return;
         }
-
-        BinaryNode parent = null;
-        BinaryNode child = root;
-        while (child != null) {
-            parent = child;
-            if (newNumber == child.element) {
-                return;
-            } else if (newNumber < child.element) {
-                child = child.left;
+        
+        BinaryNode current = root;
+        while(true) {
+            if(newObject.compareTo(current.element) > 0) {
+                if (current.right == null) {
+                    current.right = new BinaryNode(newObject);
+                    return;
+                }
+                current = current.right;
+            } else if(newObject.compareTo(current.element) < 0) {
+                if (current.left == null) {
+                    current.left = new BinaryNode(newObject);
+                    return;
+                }
+                current = current.left;
             } else {
-                child = child.right;
+                return;
             }
         }
-
-        if (newNumber < parent.element) {
-            parent.left = new BinaryNode(newNumber);
-        } else {
-            parent.right = new BinaryNode(newNumber);
-        }
+    
     }
-
-    public int maximumRecursive() {
-        if (root == null) {
-            throw new NoSuchElementException();
-        }
-        return maximumRecursive(root);
+    
+    @Override
+    public String toString() {
+//         if (root == null) {
+//             return "";
+//         }
+//         root.left ausgeben + root.element + root.right ausgeben
+        return toString(root);
     }
-
-    private int maximumRecursive(BinaryNode node) {
-        if (node.right == null) {
-            return node.element;
+    
+    private String toString(BinaryNode current) {
+        if (current == null) {
+            return "";
         }
-        return maximumRecursive(node.right);
+        return toString(current.left) + current.element + ", " + toString(current.right);
     }
-
-    public int maximumIterative() {
-        if (root == null) {
-            throw new NoSuchElementException();
+    
+    public T minimum() {
+        if(root == null) {
+            throw new java.util.NoSuchElementException("tree is empty");
         }
+    
         BinaryNode current = root;
-        while (current.right != null) {
-            current = current.right;
+        while(current.left != null) {
+            current = current.left;
         }
         return current.element;
     }
-
-    public int height() {
-        return height(root);
+    
+    public T minimumRecursive() {
+        if(root == null) {
+            throw new java.util.NoSuchElementException("tree is empty");
+        }
+        
+        return minimum(root);
     }
-
-    private int height(BinaryNode node) {
-        if (node == null) {
+    
+    private T minimum(BinaryNode root) {
+        assert root != null;
+        if (root.left == null) {
+            return root.element;
+        }
+        return minimum(root.left);
+    }
+    
+    public boolean contains(T needle) {
+        BinaryNode current = root;
+        while(true) {
+            if(current == null) {
+                return false;
+            } else if(current.element.compareTo(needle) == 0) {
+                return true;
+            } else if(current.element.compareTo(needle) < 0) {
+                current = current.right;
+            } else {
+                current = current.left;
+            }
+        }
+    }
+    
+    public int size() {
+        return size(root);
+    }
+    
+    private int size(BinaryNode root) {
+        if (root == null) {
             return 0;
         }
-        return 1 + Math.max(height(node.left), height(node.right));
+        return size(root.left) + 1 + size(root.right);
     }
 
-    public int sum() {
-        return sum(root);
-    }
-
-    private int sum(BinaryNode node) {
-        if (node == null) {
-            return 0;
-        }
-        return node.element + sum(node.left) + sum(node.right);
-    }
-
-    public String reverseOrder() {
-        StringBuilder sb = new StringBuilder();
-        reverseOrderHelper(root, sb);
-        return sb.toString().trim();
-    }
-
-    private void reverseOrderHelper(BinaryNode node, StringBuilder sb) {
-        if (node == null) {
-            return;
-        }
-        reverseOrderHelper(node.right, sb);
-        sb.append(node.element).append(", ");
-        reverseOrderHelper(node.left, sb);
-    }
-
-    public String toDescendingString() {
-        StringBuilder result = new StringBuilder();
-        toDescendingString(root, result);
-        return result.toString().substring(0, result.length() - 2);
-    }
-
-    private void toDescendingString(BinaryNode node, StringBuilder result) {
-        if (node == null) {
-            return;
-        }
-        toDescendingString(node.right, result);
-        result.append(node.element).append(", ");
-        toDescendingString(node.left, result);
-    }
-
-    public static void main(String[] args) {
-        BinarySearchTree tree = new BinarySearchTree();
-        tree.insert(10);
-        tree.insert(5);
-        tree.insert(15);
-        tree.insert(3);
-        tree.insert(7);
-
-        System.out.println("Maximum (recursive): " + tree.maximumRecursive());
-        System.out.println("Maximum (iterative): " + tree.maximumIterative());
-        System.out.println("Height: " + tree.height());
-        System.out.println("Sum: " + tree.sum());
-        System.out.println("Descending String: " + tree.toDescendingString());
-        System.out.println("Reverse Order: " + tree.reverseOrder());
-    }
 }
